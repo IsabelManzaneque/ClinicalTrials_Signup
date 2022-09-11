@@ -62,7 +62,9 @@ app.post("/back", function(req,res){
     res.redirect("/")
 })
 
-app.listen(3000, function(){
+// listens to Heroku port or local host
+
+app.listen(process.env.PORT || 3000, function(){
     console.log("server running on 3000")
 })
 
