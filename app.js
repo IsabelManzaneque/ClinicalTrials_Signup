@@ -5,6 +5,9 @@ const https = require("https");
 
 const app =  express();
 
+import {apiKey} from "./apiKey.js";
+import {listId} from "./apiKey.js"
+
 app.use(express.static("public"))
 app.use(bodyParser.urlencoded({extended: true}))
 
@@ -32,10 +35,10 @@ app.post("/", function(req,res){
         ]        
     };
     const jsonData = JSON.stringify(data);
-    const url = "https://us10.api.mailchimp.com/3.0/lists/41fdb51615";
+    const url = `https://us10.api.mailchimp.com/3.0/lists/${listId}`;
     const options = {
         method: "POST",
-        auth: "Isabel:e7890abe133aa953d80065f70b73a6df-us10"
+        auth: `Isabel:${apiKey}`
     }
 
     const request = https.request(url, options, (response) => {   
@@ -67,5 +70,3 @@ app.listen(process.env.PORT || 3000, function(){
     console.log("server running on 3000")
 })
 
-//API KEY:  e7890abe133aa953d80065f70b73a6df-us10
-//List ID:  41fdb51615
