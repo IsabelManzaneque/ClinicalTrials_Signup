@@ -1,4 +1,4 @@
-# Newsletter_Signup
+# ClinicalTrials_Signup
 
 https://limitless-harbor-93407.herokuapp.com
 
